@@ -1,15 +1,7 @@
-# 👷 `worker-template` Hello World
+# Cloudflare Workers project
 
-A template for kick starting a Cloudflare worker project.
+This project uses a cloudflare worker and implements gitflow + github actions to define a development workflow for teams.
 
-[`index.js`](https://github.com/cloudflare/worker-template/blob/master/index.js) is the content of the Workers script.
+## Why
 
-#### Wrangler
-
-To generate using [wrangler](https://github.com/cloudflare/wrangler)
-
-```
-wrangler generate projectname https://github.com/cloudflare/worker-template
-```
-
-Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
+We want to avoid doing `wrangler publish` to production manually, instead we will let every developer to manage its own cloudlfare account and we will provide the github actions to automate the deployment.

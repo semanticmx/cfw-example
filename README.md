@@ -17,3 +17,5 @@ You will need a cloudflare API token, if you don't have one yet please follow th
 * Under Custom token click Get started
 * Complete the form and copy the resulting token
 * From Github, go to Settings / Secrets and create a new repository secret called CF_API_TOKEN, paste the token you copied from the previous step.
+
+By default the Publish action will deploy your worker to your production environment on every push to the main branch

@@ -1,0 +1,23 @@
+name: Staging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Publish
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish
+        uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          environment: 'staging'
+          preCommands: |
+            cp wrangler.toml.example wrangler.toml
+            sed -ie 's/__ACCOUNT_ID__/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
+            sed -ie 's/__GIT_HASH__/${GITHUB_SHA}/g' wrangler.toml
+            wrangler build

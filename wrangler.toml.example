@@ -7,23 +7,23 @@ route = ""
 zone_id = ""
 
 [vars]
-ENVIRONMENT = "dev"
+ENVIRONMENT = "local"
 VERSION = "local"
 
 [env.dev]
 name = "dev-workflow-dev"
-[vars.dev]
+[env.dev.vars]
 ENVIRONMENT = "dev"
 VERSION = "__GIT_HASH__"
 
 [env.staging]
 name = "dev-workflow-staging"
-[vars.staging]
+[env.staging.vars]
 ENVIRONMENT = "staging"
 VERSION = "__GIT_HASH__"
 
 [env.production]
 name = "dev-workflow-production"
-[vars.production]
+[env.production.vars]
 ENVIRONMENT = "production"
 VERSION = "__GIT_HASH__"

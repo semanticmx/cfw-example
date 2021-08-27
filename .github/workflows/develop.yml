@@ -18,4 +18,5 @@ jobs:
             cp wrangler.toml.example wrangler.toml
             sed -ie 's/__ACCOUNT_ID__/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
             sed -ie 's/__GIT_HASH__/${{ github.sha }}/g' wrangler.toml
+            cat wrangler.toml
             wrangler build

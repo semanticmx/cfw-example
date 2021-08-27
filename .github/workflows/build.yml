@@ -1,21 +1,19 @@
-name: Publish
+name: Build
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Publish
+    name: Build
     steps:
       - uses: actions/checkout@v2
-      - name: Publish
+      - name: Build
         uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          environment: 'production'
+          publish: false
           preCommands: |
             cp wrangler.toml.example wrangler.toml
             sed -ie 's/ACCOUNT_ID/${{ secrets.CF_ACCOUNT_ID }}/g'

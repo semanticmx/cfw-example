@@ -6,7 +6,8 @@ addEventListener('fetch', event => {
  * @param {Request} request
  */
 async function handleRequest(request) {
-  return new Response('Hello worker!', {
+  msg = 'On environment: ' + ENVIRONMENT
+  return new Response(msg, {
     headers: { 'content-type': 'text/plain' },
   })
 }

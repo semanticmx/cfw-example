@@ -5,3 +5,14 @@ account_id = ""
 workers_dev = true
 route = ""
 zone_id = ""
+
+vars = { ENVIRONMENT = "dev" }
+
+[env.staging]
+name = "dev-workflow-staging"
+vars = { ENVIRONMENT = "staging" }
+
+
+[env.production]
+name = "dev-workflow-production"
+vars = { ENVIRONMENT = "production" }

@@ -18,5 +18,5 @@ jobs:
           environment: 'production'
           preCommands: |
             cp wrangler.toml.example wrangler.toml
-            sed -ie 's/ACCOUNT_ID/${{ secrets.CF_ACCOUNT_ID }}/g'
+            sed -ie 's/ACCOUNT_ID/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
             wrangler build

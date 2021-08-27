@@ -2,9 +2,29 @@
 
 This project uses a cloudflare worker and implements gitflow + github actions to define a development workflow for teams.
 
+## Development workflow (Gitflow)
+
+* Clone this repository
+* Create a feature branch and update the code base
+* Push your feature branch to origin and create a pull request
+* Check your changes at the [develop url|https://dev-workflow-dev.cvences-bespoke.workers.dev]
+* Once your PR has been approved and merged into main branch your new feature will be deployed to [staging|https://dev-workflow-staging.cvences-bespoke.workers.dev]
+* Once staging is ready for production create a new release following the pattern v1.* and check [staging|https://dev-workflow-production.cvences-bespoke.workers.dev]
+
+## Development workflow (Fork)
+
+* Fork this repository
+* You can check dev environment every time you push your feature branch to origin
+* You can check staging environment every time you merge your changes into main|master branch
+* Update your code and create a pull request
+* Once your PR has been approved and merged into main branch your new feature will be deployed to upstream's staging environment
+* Once upstream maintainers create a new release the code will be deployed to production.
+
 ## Why
 
 We want to avoid doing `wrangler publish` to production manually, instead we will let every developer to manage its own cloudlfare account and we will provide the github actions to automate the deployment.
+
+By adding wrangler.toml to gitignore developers can set their own variables and secrets, deploying to their free CF workers account which will mimic production environment, while protecting upstream produuction environment.
 
 ## Setup
 

@@ -17,5 +17,5 @@ jobs:
           preCommands: |
             cp wrangler.toml.example wrangler.toml
             sed -ie 's/__ACCOUNT_ID__/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
-            sed -ie 's/__GIT_HASH__/${GITHUB_SHA}/g' wrangler.toml
+            sed -ie 's/__GIT_HASH__/${{ GITHUB_SHA }}/g' wrangler.toml
             wrangler build

@@ -1,0 +1,35 @@
+name: Test Harness
+
+on:
+  push:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    name: Setup
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup
+        uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          publish: false
+          preCommands: |
+            cp wrangler.toml.example wrangler.toml
+            sed -ie 's/__ACCOUNT_ID__/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
+            wrangler build
+  server:
+    needs: setup
+    runs-on: ubuntu-latest
+    name: Server
+    steps:
+      - uses: actions/checkout@v2
+      - name: Server
+        uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          publish: false
+          preCommands: |
+            cp wrangler.toml.example wrangler.toml
+            sed -ie 's/__ACCOUNT_ID__/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
+            wrangler dev

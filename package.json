@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "concurrently --success first --kill-others \"wrangler dev \" \"wait-on -d 3000 -t 30000 http-get://localhost:8787 && jest\"",
-    "format": "prettier --write '**/*.{js,css,json,md}'",
-    "prepare": "husky install"
+    "format": "prettier --write '**/*.{js,css,json,md}'"
   },
   "author": "Carlos Vences <carlos@semantic.mx>",
   "license": "MIT",
@@ -21,9 +20,16 @@
     "jest-fetch-mock": "^3.0.3",
     "node-fetch": "^3.0.0",
     "prettier": "^1.18.2",
+    "simple-git-hooks": "^2.6.1",
     "wait-on": "^6.0.0"
   },
   "dependencies": {
     "axios": "^0.21.4"
+  },
+  "simple-git-hooks": {
+    "preserveUnused": true,
+    "preserveUnused": [
+      "commit-msg"
+    ]
   }
 }

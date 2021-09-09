@@ -18,10 +18,10 @@ jobs:
             cp wrangler.toml.example wrangler.toml
             sed -ie 's/__ACCOUNT_ID__/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
             wrangler build
-  server:
-    needs: setup
+  testing:
+    needs: Testing
     runs-on: ubuntu-latest
-    name: Server
+    name: Testing
     steps:
       - uses: actions/checkout@v2
       - name: Server
@@ -33,4 +33,6 @@ jobs:
             npm install concurrently wait-on
             cp wrangler.toml.example wrangler.toml
             sed -ie 's/__ACCOUNT_ID__/${{ secrets.CF_ACCOUNT_ID }}/g' wrangler.toml
+            mkdir -p .jest
+            cp etc/jest/setEnvVars.js .jest/setEnvVars.js
             npm run test

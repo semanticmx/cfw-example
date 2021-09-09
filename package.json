@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "concurrently --success first --kill-others \"wrangler dev \" \"wait-on -d 3000 -t 30000 http-get://localhost:8787 && jest\"",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "prepare": "husky install"
   },
   "author": "Carlos Vences <carlos@semantic.mx>",
   "license": "MIT",
@@ -15,6 +16,7 @@
     "@babel/preset-env": "^7.15.4",
     "babel-jest": "^27.1.1",
     "concurrently": "^6.2.1",
+    "husky": "^7.0.2",
     "jest": "^27.1.1",
     "jest-fetch-mock": "^3.0.3",
     "node-fetch": "^3.0.0",

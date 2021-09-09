@@ -9,4 +9,7 @@ worker/
 node_modules/
 .cargo-ok
 
+.jest
+coverage
+
 wrangler.toml

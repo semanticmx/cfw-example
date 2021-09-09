@@ -1,4 +1,4 @@
-import Message from './src/message'
+import Message from './src/Message'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
